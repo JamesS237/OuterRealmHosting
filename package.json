@@ -1,0 +1,25 @@
+{
+  "name": "outer_realm_hosting",
+  "version": "0.0.1",
+  "description": "Minecraft server hosting provider",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha -R nyan"
+  },
+  "author": "James Spencer",
+  "license": "All Rights Reserved",
+  "dependencies": {
+    "ejs": "~0.8.4",
+    "ec2": "~0.1.1",
+    "express": "~3.3.2",
+    "paypal-express-checkout": "~1.0.0-6",
+    "async": "~0.2.9",
+    "connect-stream-s3": "~0.7.2",
+    "awssum": "~1.0.0",
+    "awssum-amazon": "~1.0.2",
+    "awssum-amazon-s3": "~1.2.4",
+    "moment": "~2.0.0",
+    "ssh2": "~0.2.9",
+    "request": "~2.22.0"
+  }
+}

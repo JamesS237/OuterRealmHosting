@@ -1,0 +1,114 @@
+<% layout('layout') -%>
+
+<form action="/login" method="post" class="form-signin" onsubmit="return validate(this);">
+	<fieldset>
+		<legend>Create a new Minecraft Server</legend>
+
+		<div class="span3">
+			<select name="plan" value="Please select a plan" class="select-block span3" style="display: none;">
+				<option value="" selected="selected">Please select a plan</option>
+
+				<option value="pluto">Pluto - 0.6GB</option>
+				<option value="mercury">Mercury - 1.6GB</option>
+				<option value="mars">Mars - 3.7GB</option>
+				<option value="venus">Venus - 7.4GB</option>
+				<option value="neptune">Neptune - 14.9GB</option>
+				<option value="saturn">Saturn - 15.0GB</option>
+				<option value="jupiter">Jupiter - 16.8GB</option>
+			</select>
+		</div>
+
+		<div class="span3">
+			<select name="typea" value="Please select a base server type" class="select-block span3" style="display: none;">
+				<option value="" selected="selected">Please select a base server type</option>
+
+				<option value="vanilla">Vanilla</option>
+				<option value="bukkit">Bukkit</option>
+			</select>
+		</div>
+
+		<div class="span3">
+			<select name="typeb" value="Please select a modpack" class="select-block span3" style="display: none;">
+				<option value="" selected="selected">Please select a modpack</option>
+
+				<option value="vanilla">Vanilla</option>
+				<option value="tekkit">Tekkit</option>
+				<option value="feedthebeast">Feed The Beast</option>
+			</select>
+		</div>
+
+		<div class="span3">
+			<select name="typec" value="Please select a modpack version version (If you selected Feed The Beast)" class="select-block span3" style="display: none;">
+				<option value="" selected="selected">Please select a modpack version version (If you selected Feed The Beast)</option>
+
+				<option value="ultimate">Ultimate</option>
+				<option value="direwolf20">Direwolf20</option>
+				<option value="mindcrack">MindCrack</option>
+				<option value="yogcraft">YogCraft</option>
+				<option value="rpgimmersion">RPG Immersion</option>
+				<option value="lite">FTB Lite</option>
+				<option value="ampz">Ampz</option>
+				<option value="magicworld">Magic World</option>
+				<option value="techworld">Tech World</option>
+				<option value="slowsstream">Slow's Stream</option>
+				<option value="retrosmp">Retro SMP</option>
+				<option value="betapacka">Beta Pack A</option>
+			</select>
+		</div>
+
+		<div class="span3">
+			<label>Server operators (must contain at least one). Formatting - Split with Newlines.</label>
+			<textarea rows="3" name="ops">
+
+			</textarea>
+		</div>
+
+		<div class="span3">
+			<label>Whitelist enabled?</label>
+			<div class="switch has-switch">
+				<div class="switch-animate switch-off">
+					<input type="checkbox" data-toggle="switch" name="whitelist_enabled">
+					<span class="switch-left">ON</span>
+					<label>&nbsp;</label>
+					<span class="switch-right">OFF</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="span3">
+			<label>Whitelist (if applicable). Formatting - Split with Newlines.</label>
+			<textarea rows="3" name="whitelist">
+
+			</textarea>
+		</div>
+
+		<div class="span3">
+			<label>(Free) Automatic Backups enabled?</label>
+			<div class="switch has-switch">
+				<div class="switch-animate switch-off">
+					<input type="checkbox" data-toggle="switch" name="backups_enabled">
+					<span class="switch-left">ON</span>
+					<label>&nbsp;</label>
+					<span class="switch-right">OFF</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="span3">
+			<label>(Free) Website enabled?</label>
+			<div class="switch has-switch">
+				<div class="switch-animate switch-off">
+					<input type="checkbox" data-toggle="switch" name="website_enabled">
+					<span class="switch-left">ON</span>
+					<label>&nbsp;</label>
+					<span class="switch-right">OFF</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-actions">
+			<button type="submit" class="btn btn-primary">Create Server</button>
+			<a href="/" class="btn dtn-danger">Cancel</button>
+		</div>
+	</fieldset>
+</form>

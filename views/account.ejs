@@ -1,0 +1,83 @@
+<% layout( 'layout') -%>
+	<h1>Username:</h1> <h3><%=user.username %></h3>
+	<h1>Fullname:</h1> <h3><%=user.fullname %></h3>
+	<h1>Email:</h1> <h3><%=user.email %></h3>
+	<h1>Password:</h1> <h3><a href="/changepassword">Change Password</a></h3>
+
+	<h1>Servers</h1>
+	<h4>Psst. You can click <a href="/create">here</a> to create a new server!</h4>
+	<table class="table table-hover">
+		<caption>A list of servers' owned by your account</caption>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>IP Address</th>
+				<th>Type</th>
+				<th>Backups Enabled</th>
+				<th>Website Enabled</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% for(var i=0 ; i < user.servers.length; i++){%>
+				<tr>
+					<td>
+						<%=user.servers[i].name%>
+					</td>
+					<td>
+						<%=user.servers[i].ip%>
+					</td>
+					<td>
+						<%=serverType(user.servers[i].type)%>
+					</td>
+					<%if(user.servers[i].backups){%><i class="icon-ok"></i>
+						<%}else{%><i class=" icon-remove"></i>
+							<%}%>
+								<%if(user.servers[i].website){%><i class="icon-ok"></i>
+									<%}else{%><i class=" icon-remove"></i>
+										<%}%>
+				</tr>
+				<%}%>
+					<%if(!user.servers.length>0){%>
+						<tr>
+							<td colspan="5">You don't currently have any servers, <i class="fui-arrow-right"></i><a href="/create">click here</a><i class="fui-arrow-left"></i> to create one!</td>
+						</tr>
+						<%}%>
+		</tbody>
+	</table>
+
+	<h1>Unpaid Bills</h1>
+	<table class="table table-hover">
+		<caption>A bills that have yet to be paid by you.</caption>
+		<thead>
+			<tr>
+				<th>Amount</th>
+				<th>Description</th>
+				<th>Due</th>
+				<th>Pay Now</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% var unpaid = false %>
+			<% for(var i=0; i < bills.length; i++){ if(bills[i].owner == user.username) { if(!bills[i].paid){ unpaid = true %>
+				<tr>
+					<td>
+						<%=bills[i].amount%>
+					</td>
+					<td>
+						<%=bills[i].description%>
+					</td>
+					<td>
+						<%=fromNow(bills[i].due)%>
+					</td>
+					<td>
+						<a href="/account/bills/pay/<%=bills[i].id%>">Pay Bill</a>
+					</td>
+				</tr>
+				<%} } }%>
+					<%if(!unpaid){%>
+						<tr class="success">
+							<td colspan="3">You don't currently have any unpaid bills, thank you :)</td>
+						</tr>
+					<%}%>
+		</tbody>
+	</table>

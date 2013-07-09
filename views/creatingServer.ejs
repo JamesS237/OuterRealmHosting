@@ -1,0 +1,98 @@
+<% layout('layout') -%>
+    <style type="text/css">
+      body {
+        padding-top: 20px;
+        padding-bottom: 40px;
+      }
+
+      /* Custom container */
+      .container-narrow {
+        margin: 0 auto;
+        max-width: 700px;
+      }
+      .container-narrow > hr {
+        margin: 30px 0;
+      }
+
+      /* Main marketing message and sign up button */
+      .jumbotron {
+        margin: 60px 0;
+        text-align: center;
+      }
+      .jumbotron h1 {
+        font-size: 72px;
+        line-height: 1;
+      }
+      .jumbotron .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+      }
+
+      /* Supporting marketing content */
+      .marketing {
+        margin: 60px 0;
+      }
+      .marketing p + h4 {
+        margin-top: 28px;
+      }
+      .center-screen {
+          position:fixed;
+          top: 50%;
+          left: 50%;
+          width:30em;
+          height:18em;
+          margin-top: -9em; /*set to a negative number 1/2 of your height*/
+          margin-left: -15em; /*set to a negative number 1/2 of your width*/
+      }
+    </style>
+
+<script src="/socket.io.js"></script>
+<script>
+function addClass(element, value) {
+	if(!element.className) {
+		element.className = value;
+	} else {
+		newClassName = element.className;
+		newClassName+= " ";
+		newClassName+= value;
+		element.className = newClassName;
+	}
+}
+
+function increment(n, i) {
+	document.getElementById(n).style.width = i + '%';
+}
+
+var io = io.connect('http://' + window.location.host);
+
+var userId = "<%=req.user.uuid%>";
+
+io.on('progress', function(data) {
+	if(userId == data.user) {
+		increment('bar', data.progress);
+	}
+
+	if(data.progress == 100) {
+		//done
+		window.location = "http://" + window.location.host + "/account"
+	}
+});
+
+io.on('status', function(data) {
+	if(userId == data.user) {
+		document.getElementById('status').innerHTML = '<p class="lead">' + data.status + '</p>';
+	}
+	if(data.status instaceof Error) {
+		addClass(document.getElementById('bar'), 'bar-danger');
+	}
+});
+</script>
+
+     <div class="jumbotron center-screen">
+        <h1>Creating server...</h1>
+        <span id="bar">
+        	<div><div class="bar" style="width: 0%;"></div></div>
+        </span>
+        
+        <span id="status"><p class="lead">Getting ready</p></span>
+      </div>

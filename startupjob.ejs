@@ -1,0 +1,6 @@
+chdir /home/ubuntu/server
+
+exec /usr/bin/java  -jar server.jar -Xmx<%=ram%>M -Xms<%=ram%>M nogui > /home/ubuntu/server/logfile.log
+
+start on runlevel [2345]
+stop on runlevel [^2345]

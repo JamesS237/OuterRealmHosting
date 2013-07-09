@@ -1,0 +1,39 @@
+Choose a Plan:
+		'jupiter': 'm2.xlarge',
+		'saturn': 'm3.xlarge',
+		'neptune': 'm1.xlarge',
+		'venus': 'm1.large',
+		'mars': 'm1.medium',
+		'mercury': 'm1.small',
+		'pluto': 't1.micro'
+
+Choose a base:
+		bukkit
+		vanlla
+Choose a modpack
+		vanilla
+		tekkit
+		feedthebeast
+Choose a version (if modpack is feedthebeast)
+				ultimate
+				direwolf20
+				mindcrack
+				yogcraft
+				rpgimmersion		
+				lite
+				ampz
+				magicworld
+				techworld
+				slowsstream
+				retrosmp
+				betapacka
+
+Choose ops (at least one, can be changed later)
+				text box, names line seperated
+
+Enable whitelist? check box
+
+Choose whitelist [if applicable] (at least one, can be changed later)
+				text box, names line seperated
+
+[Go]
