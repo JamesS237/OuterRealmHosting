@@ -3,11 +3,12 @@ OuterRealmHosting
 
 A Minecraft Server hosting platform written in Node.JS
 
-TODO
+Todo
 ====
 
 - Tests
 - Docs
+- Server Tarballs
 
 Licence
 =======
