@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha -R nyan"
   },
-  "author": "James Spencer,David Johns,Jackson Roberts",
+  "author": "James Spencer, David Johns, Jackson Roberts",
   "license": "MIT",
   "dependencies": {
     "ejs": "~0.8.4",
