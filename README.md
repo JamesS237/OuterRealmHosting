@@ -8,3 +8,8 @@ TODO
 
 - Tests
 - Docs
+
+Licence
+=======
+
+MIT
